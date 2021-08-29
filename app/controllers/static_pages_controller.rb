@@ -1,10 +1,8 @@
 class StaticPagesController < ApplicationController
 
     def index
-        flickr = Flickr.new
-
-        #@photos
-
+      
+        Flickr.new(Figaro.env.flickr_api_key,Figaro.env.flickr_shared_secret)
         respond_to do |format|
             format.html # index.html.erb
             format.xml  { render :xml => @photos }
@@ -13,3 +11,4 @@ class StaticPagesController < ApplicationController
             end
     end
 end
+ENV["FLICKR_SHARED_SECRET"]
