@@ -1,1 +1,12 @@
+<% require "flickr" %>
+
+
+
+
 <h1>static pages index</h1>
+
+<%= form_with url: "/search", method: :get do |form| %>
+  <%= form.label :flickr_user_id, "Search for Flickr user:" %>
+  <%= form.text_field :flickr_user_id %>
+  <%= form.submit "Search" %>
+<% end %>
