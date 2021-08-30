@@ -1,12 +1,21 @@
-<% require "flickr" %>
 
 
 
 
 <h1>static pages index</h1>
+<h2>woo</h2>
 
-<%= form_with url: "/search", method: :get do |form| %>
-  <%= form.label :flickr_user_id, "Search for Flickr user:" %>
-  <%= form.text_field :flickr_user_id %>
+<%= form_with url: "/", method: :get do |form| %>
+  <%= form.label :user_id, "Search for Flickr user:" %>
+  <%= form.text_field :user_id %>
   <%= form.submit "Search" %>
 <% end %>
+
+
+
+
+<% @photos.each do |photo| %>
+<% link = "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_w.jpg" %>
+<img src='<%="https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_w.jpg" %>'  alt="alt"> 
+<% end%>
+
